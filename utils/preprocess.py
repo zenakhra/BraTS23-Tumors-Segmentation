@@ -65,6 +65,8 @@ def insert_cases_paths_to_df(df:str,
     df = df[df['BraTS2023'].notna()]
     for _ , row in df.iterrows():
         id = row["BraTS2023"]
+        print(train_dir)
+        print(test_dir)
         if id in os.listdir(train_dir):
             path = train_dir + "/" + id
             if id in train:
