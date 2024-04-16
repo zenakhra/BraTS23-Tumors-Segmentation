@@ -9,7 +9,7 @@ import logging
 #setting up logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
+root_dir = r"G:\Mon Drive\Brats21 Data\Dataset"
 file_handler = logging.FileHandler("json_file_creation.log")
 stream_handler = logging.StreamHandler()
 formatter = logging.Formatter("%(asctime)s:%(name)s:%(message)s")
@@ -18,15 +18,6 @@ stream_handler.setFormatter(formatter)
 
 logger.addHandler(file_handler)
 logger.addHandler(stream_handler)
-# add to path
-try:
-    from config import configs
-except ModuleNotFoundError:
-    ROOT = Path(__file__).resolve().parents[1] #project root directory
-    if ROOT not in sys.path:
-        sys.path.append(str(ROOT))
-    ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative path
-    from config import configs
 
 # store the ttraining dataset into json file
 def generate_json_file(path, name):
@@ -42,7 +33,7 @@ def generate_json_file(path, name):
     json_file_path = os.path.join(path, name)
     is_file = os.path.isfile(json_file_path)
     random.seed(50) # to generate consistent random results
-    train_root_dir = configs.Config.newGlobalConfigs.train_root_dir
+    train_root_dir = r"G:\Mon Drive\Brats21 Data\Dataset\training\ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
     patients_records = os.listdir(train_root_dir)
     random.shuffle(patients_records)
 
@@ -75,7 +66,7 @@ def generate_json_file(path, name):
 
 if __name__ == "__main__":
     logger.info("Running Everything now")
-    generate_json_file(configs.Config.newGlobalConfigs.root_dir, 'dataset.json')
+    generate_json_file(root_dir, 'dataset.json')
     logger.info('done')
 
 
