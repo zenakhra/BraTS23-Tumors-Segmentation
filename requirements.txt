@@ -58,3 +58,4 @@ opencv-python
 ipython
 seaborn
 openpyxl
+hydra-core
