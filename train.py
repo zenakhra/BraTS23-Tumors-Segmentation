@@ -151,7 +151,7 @@ def val(model, loader, acc_func,
             dice_wt = run_acc.avg[1]
             dice_et = run_acc.avg[2]
             print(
-                "Val {}/{} {}/{}".format(epoch, max_epochs, index, len(loader)),
+                "1Val {}/{} {}/{}".format(epoch, max_epochs, index, len(loader)),
                 ", dice_tc:",
                 dice_tc,
                 ", dice_wt:",

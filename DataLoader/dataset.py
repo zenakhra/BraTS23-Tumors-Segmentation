@@ -85,6 +85,7 @@ class BraTSDataset(Dataset):
         modalities = [] 
         for data_type in self.data_types:
             img_path = root_path + "/" + case + data_type
+            print(img_path)
             img = self.load_img(img_path)
             
             if self.is_resize:
