@@ -458,7 +458,6 @@ def main(cfg: DictConfig):
         json_file = cfg.paths.json_file
 
     logger.info("Configured. Now Loading the dataset...\n")
-    print(train_dir)
     # load training and validation datasets
     train_loader = get_dataloader(BraTSDataset,
                                   dataset_info_csv,
