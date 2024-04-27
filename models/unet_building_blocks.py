@@ -135,4 +135,3 @@ if __name__ == "__main__":
     input = input.to(torch.float32)
     double_conv = DoubleConv(4, 8, 6)
     output = double_conv(input)
-    print(output.shape)

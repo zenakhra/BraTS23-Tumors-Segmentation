@@ -27,7 +27,6 @@ print(duration * 1000)
 #                   dropout_prob=0.3, num_groups=4, blocks_down= (1, 2, 2, 4), blocks_up= (1, 1, 1))
 
 # (output, shapes) = model(input)
-print(output.shape)
 # print(shapes)
 # print([1].shape/)
 # print(output.dtype)

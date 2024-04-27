@@ -15,4 +15,3 @@ path = configs.Config.newGlobalConfigs.path_to_xlsx
 with open('configs.yaml', "r") as f:
     configs = yaml.safe_load(f)
 
-print(configs)

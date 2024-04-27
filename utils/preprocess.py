@@ -77,8 +77,6 @@ def insert_cases_paths_to_df(df:str,
         elif id in os.listdir(test_dir):
             path = test_dir + "/" + id
             type = "test"
-        print(path)
-        print(type)
         paths.append(path)
         phase.append(type)
     df['path'] = paths

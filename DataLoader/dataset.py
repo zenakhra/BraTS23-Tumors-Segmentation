@@ -59,7 +59,7 @@ class BraTSDataset(Dataset):
         self.phase = phase
         self.is_resize = is_resize
         self.augmentations = data_transforms(phase= phase)
-        self.data_types = ['-t2f.nii.gz', '-t1n.nii.gz', '-t1c.nii.gz', '-t2w.nii.gz']
+        self.data_types = ['-t2f.nii', '-t1n.nii', '-t1c.nii', '-t2w.nii']
         self.is_process_mask = is_process_mask
 
     def __len__(self):
@@ -85,7 +85,6 @@ class BraTSDataset(Dataset):
         modalities = [] 
         for data_type in self.data_types:
             img_path = root_path + "/" + case + data_type
-            print(img_path)
             img = self.load_img(img_path)
             
             if self.is_resize:
@@ -98,7 +97,7 @@ class BraTSDataset(Dataset):
         
         # load the label for non test set
         if self.phase != "test":
-            mask_path =  root_path + "/" + case + "-seg.nii.gz"
+            mask_path =  root_path + "/" + case + "-seg.nii"
             mask = self.load_img(mask_path)
             mask = np.moveaxis(mask, (0, 1, 2), (2, 1, 0))
             

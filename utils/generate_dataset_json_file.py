@@ -9,7 +9,7 @@ import logging
 #setting up logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-root_dir = r"G:\Mon Drive\Brats21 Data\Dataset"
+root_dir = "/gdrive/MyDrive/Brats21 Data/Dataset"
 file_handler = logging.FileHandler("json_file_creation.log")
 stream_handler = logging.StreamHandler()
 formatter = logging.Formatter("%(asctime)s:%(name)s:%(message)s")
@@ -33,7 +33,7 @@ def generate_json_file(path, name):
     json_file_path = os.path.join(path, name)
     is_file = os.path.isfile(json_file_path)
     random.seed(50) # to generate consistent random results
-    train_root_dir = r"G:\Mon Drive\Brats21 Data\Dataset\training\ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
+    train_root_dir = "/gdrive/MyDrive/Brats21 Data/Dataset/training/ASNR-MICCAI-BraTS2023-GLI-Challenge-TrainingData"
     patients_records = os.listdir(train_root_dir)
     random.shuffle(patients_records)
 
@@ -50,7 +50,7 @@ def generate_json_file(path, name):
         patient_files = os.listdir(patient_path)
         patient["image"] = []
         for img in patient_files:
-            if not "-seg.nii.gz" in img:
+            if not "-seg.nii" in img:
                 patient["image"].append(patient_path + "/" + img)
             else:
                 patient["label"] = patient_path + "/" + img

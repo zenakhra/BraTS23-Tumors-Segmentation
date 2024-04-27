@@ -157,7 +157,7 @@ class util:
         files = os.listdir(patient_data)
         modalities = []
         for modality in files:
-            if not '_seg.nii.gz' in modality:
+            if not '_seg.nii' in modality:
                 modality_path = os.path.join(patient_data, modality)
                 img = nib.load(modality_path)
                 img = np.asanyarray(img.dataobj)
@@ -165,7 +165,7 @@ class util:
                 modalities.append(img)
         id = patient_data.split("/")[-1]
         print('patient id: {}'.format(id))
-        label_path = os.path.join(patient_data, id+ '_seg.nii.gz')
+        label_path = os.path.join(patient_data, id+ '_seg.nii')
         label = nib.load(label_path)
         label = np.asanyarray(label.dataobj)
         label = np.rot90(label)
@@ -264,7 +264,7 @@ class util:
             label = []
             contents = os.listdir(case)
             for modality in contents:
-                if not '_seg.nii.gz' in modality:
+                if not '_seg.nii' in modality:
                     file_path = os.path.join(case, modality)
                     data = nib.load(file_path)
                     data = np.asarray(data.dataobj)

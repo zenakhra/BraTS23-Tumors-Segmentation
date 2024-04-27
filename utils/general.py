@@ -81,10 +81,10 @@ def visualize_data_sample(case, id,  slice=78, modality= "flair"):
     case: str
     slice: int
     modality: str"""
-    # img_add = os.path.join(data_dir, f"TrainingData/BraTS2021_00006/BraTS2021_00006_{modality}.nii.gz")
-    # label_add = os.path.join(data_dir, "TrainingData/BraTS2021_00006/BraTS2021_00006_g.nii.gz")
-    test_image = case + f"/{id}_{modality}.nii.gz"
-    label = case + f"/{id}_seg.nii.gz"
+    # img_add = os.path.join(data_dir, f"TrainingData/BraTS2021_00006/BraTS2021_00006_{modality}.nii")
+    # label_add = os.path.join(data_dir, "TrainingData/BraTS2021_00006/BraTS2021_00006_g.nii")
+    test_image = case + f"/{id}_{modality}.nii"
+    label = case + f"/{id}_seg.nii"
     img = nib.load(test_image).get_fdata()
     label = nib.load(label).get_fdata()
     print(f"image shape: {img.shape}, label shape: {label.shape}")
